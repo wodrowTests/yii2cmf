@@ -15,3 +15,5 @@
 // $schedule->command('migrate')->cron('* * * * *');
 
 // $schedule->exec('composer self-update')->daily();
+
+$schedule->exec('migrate/dump')->daily(); // 每天执行一次数据库导出迁移
