@@ -1,9 +1,18 @@
-RewriteEngine on
+#RewriteEngine on
 
-# If a directory or a file exists, use the request directly
+## If a directory or a file exists, use the request directly
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+## Otherwise forward the request to index.php
+#RewriteRule . index.php
+#RewriteCond %{HTTP_HOST} ^51siyuan.cn
+#RewriteRule ^(.*)$ http://www.51siyuan.cn/$1 [R=permanent,L]
+
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+# if a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# Otherwise forward the request to index.php
+# otherwise forward it to index.php
 RewriteRule . index.php
-RewriteCond %{HTTP_HOST} ^51siyuan.cn
-RewriteRule ^(.*)$ http://www.51siyuan.cn/$1 [R=permanent,L]
