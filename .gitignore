@@ -32,3 +32,6 @@ dump.rdb
 
 # env
 /.env
+
+# test
+tt.txt
